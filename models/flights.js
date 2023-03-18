@@ -6,8 +6,8 @@ const flightsSchema = new mongoose.Schema({
     airport: { type: String,
     enum: ['AUS', 'DFW', 'DEN', 'LAX', 'SAN']},
     flightNo: { type: Number, min: 10, max: 9999},
-    departs: { type: Number, default: function() {
-        return Date();
+    departs: { type: Date, default: function() {
+        return Date().getDate();
     } }
 })
 
