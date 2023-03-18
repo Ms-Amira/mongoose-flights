@@ -12,11 +12,9 @@ function newFlight(req, res) {
 }
 
 function create(req, res) {
-    req.body.airline = req.body.airline.split(',');
-    req.body.airport = req.body.airport.split(',');
     FlightModel.create(req.body).then(function(newFlights) {
         console.log(newFlights, '<- flight document')
-        res.redirect('/flights');
+        res.redirect('flights');
     })
 }
 
