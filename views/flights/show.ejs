@@ -11,6 +11,7 @@
     <div><%= flight.departs %></div>
     <div>Arrival:</div>
     <% flight.destination.forEach(function(d) { %> 
+        <!-- fill in for each -->
      <% }); %>
 <form id="add-arrival-form" method="POST" action="/flights/<%= flight._id %>/destination">
   <input type="date" name="arrival">
