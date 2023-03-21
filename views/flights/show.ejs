@@ -10,9 +10,26 @@
     <div>Departs:</div>
     <div><%= flight.departs %></div>
     <div>Arrival:</div>
-    <% flight.destination.forEach(function(d) { %> 
-        <!-- fill in for each -->
-     <% }); %>
+    <% if (flight.destination.length) { %>
+        <table>
+          <thead>
+            <tr>
+              <th>Airport</th>
+              <th>Arrival Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% flight.destination.forEach(function(dest) { %>
+              <tr>
+                <td><%= dest.airport %></td>
+                <td><%= dest.arrival.toLocaleString() %></td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      <% } else { %>
+        <h5>No Destination</h5>
+      <% } %>
 <form id="add-arrival-form" method="POST" action="/flights/<%= flight._id %>/destination">
   <input type="date" name="arrival">
 <label>Arrival Airport</label>
